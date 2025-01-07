@@ -34,7 +34,7 @@
 
                     // Check if the previous line contains the specified strings
                     if (previousLine.includes('STRINGS.SKIN_QUOTES') || previousLine.includes('STRINGS.CHARACTERS')) {
-                        if (!currentLine.includes('STRINGS')) {
+                        if (!currentLine.includes('STRINGS') || !currentLine.includes('only_used')) {
                             filteredStrings.push(currentLine);
                         }
                     }
