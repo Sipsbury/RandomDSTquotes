@@ -8,17 +8,26 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+	text-align: center;
+        }
+	    button {
+            padding: 5px 5px;
+            font-size: 13px;
+            cursor: pointer;
         }
         pre {
             white-space: pre-wrap; /* Preserve whitespace */
-        }
+        font-size: 20px
+		}
     </style>
 </head>
 <body>
 <br>
-    <pre id="output" style="text-align: center"></pre>
-
+    <pre id="output"></pre>
+    <button id="fetchButton" >Get a Quote</button>
+	
     <script>
+	     function fetchRandomString() {
         fetch('strings.pot')
             .then(response => response.text())
             .then(data => {
@@ -54,6 +63,12 @@
             .catch(error => {
                 console.error('Error fetching the file:', error);
             });
+	     }
+	     // Add event listener to the button
+        document.getElementById('fetchButton').addEventListener('click', fetchRandomString);
+		
+		 // Call fetchRandomString on page load
+        fetchRandomString();
     </script>
 </body>
 </html>
